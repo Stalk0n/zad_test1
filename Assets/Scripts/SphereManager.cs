@@ -34,10 +34,9 @@ public class SphereManager : MonoBehaviour
         float length = spline.CalculateLength();
         _distance += _speed * Time.deltaTime;
         _distance = Mathf.Min(_distance, length);
-        float t = _distance / length;
         float progress = _distance / length;
 
-        transform.position = spline.EvaluatePosition(t);
+        transform.position = spline.EvaluatePosition(progress);
 
         _rend.material.color = colorGradient.Evaluate(progress);
 
@@ -76,8 +75,8 @@ public class SphereManager : MonoBehaviour
         while (elapsed < rampDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / rampDuration;
-            _speed = Mathf.Lerp(startSpeed, _maxSpeed, t);
+            float progress = elapsed / rampDuration;
+            _speed = Mathf.Lerp(startSpeed, _maxSpeed, progress);
             yield return null;
         }
 
@@ -94,8 +93,8 @@ public class SphereManager : MonoBehaviour
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            float a = Mathf.Lerp(1f, 0f, elapsed / duration);
-            _rend.material.color = new Color(startColor.r, startColor.g, startColor.b, a);
+            float alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
+            _rend.material.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
             yield return null;
         }
 

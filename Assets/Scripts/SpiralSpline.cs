@@ -23,9 +23,9 @@ public class SpiralSpline : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            float t = (float)i / (count - 1);
-            float angle = t * turns * 2f * Mathf.PI;
-            float radius = Mathf.Lerp(startRadius, endRadius, t);
+            float progress = (float)i / (count - 1);
+            float angle = progress * turns * 2f * Mathf.PI;
+            float radius = Mathf.Lerp(startRadius, endRadius, progress);
 
             spline.Spline.Add(new BezierKnot(new Vector3(
                 Mathf.Cos(angle) * radius,

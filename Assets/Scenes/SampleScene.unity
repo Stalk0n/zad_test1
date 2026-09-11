@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SphereManager
   spline: {fileID: 1045496870}
   startButton: {fileID: 548524419}
-  distanceTraceledText: {fileID: 1515632802}
+  distanceTraveledText: {fileID: 1515632802}
   fireworks: {fileID: 1378473370}
   colorGradient:
     serializedVersion: 2
